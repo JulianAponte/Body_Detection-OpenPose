@@ -59,11 +59,3 @@ Cada frame se guarda con este formato:
   ]
 }
 ```
-
-## Nota sobre OpenPose
-
-Si tienes `pyopenpose` disponible, el modulo intentara usarlo cuando el backend sea `auto` u `openpose`. Si no esta instalado, se utilizara `MediaPipe` para que puedas validar el MVP sin compilar OpenPose de inmediato.
-
-## Nota sobre multipersona
-
-Con `OpenPose`, el diseno ya soporta multiples personas. Con `MediaPipe Pose`, el MVP procesa una persona por frame, suficiente para validar deteccion corporal, hombros, postura y movimiento.
