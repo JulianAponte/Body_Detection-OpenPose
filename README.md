@@ -1,20 +1,38 @@
 # Jupiter Pose Module
 
-MVP en Python para detectar postura corporal usando `OpenPose` si esta disponible y `MediaPipe` como fallback automatico.
+Este es un MVP en Python para detectar postura corporal usando `OpenPose` si está disponible y `MediaPipe` como respaldo automático.
 
-## Archivos
+## ¿Qué hace este proyecto?
 
-- `main.py`: punto de entrada.
-- `pose_detector.py`: carga del backend y extraccion de hombros.
-- `utils.py`: dibujo debug y exportacion JSON.
-- `config.py`: constantes por defecto.
-- `output.json`: salida generada por la ejecucion.
+Este proyecto sirve para detectar y seguir la postura corporal en tiempo real usando una cámara o un video.
+
+Lo que hace, en pocas palabras, es:
+
+- detectar los puntos clave de los hombros,
+- decidir si la postura de una persona está "abierta" o "cerrada",
+- calcular cuánto movimiento hubo entre un frame y otro.
+
+## ¿Por qué usamos OpenPose como opción principal?
+
+`OpenPose` se usa como backend principal porque funciona muy bien cuando hay varias personas en cámara.
+
+Su ventaja es que analiza primero todas las partes del cuerpo que aparecen en la imagen y después las agrupa por persona. Eso hace que el costo de procesamiento se mantenga bastante estable aunque haya más de un cuerpo en escena.
+
+En cambio, herramientas como `MediaPipe` normalmente detectan a cada persona por separado, así que el esfuerzo de procesamiento crece con cada cuerpo adicional. Por eso, para escenarios con varias personas, `OpenPose` suele ser una mejor opción.
+
+## Archivos principales
+
+- `main.py`: punto de entrada del programa.
+- `pose_detector.py`: carga el backend y extrae los puntos de los hombros.
+- `utils.py`: dibuja información de depuración y exporta el JSON.
+- `config.py`: contiene las constantes por defecto.
+- `output.json`: archivo de salida generado al ejecutar el proyecto.
 
 ## Requisitos
 
-Se recomienda Python 3.12.
+Se recomienda usar Python 3.12.
 
-## Instalacion
+## Instalación
 
 ```powershell
 uv venv --python 3.12 .venv
@@ -22,28 +40,28 @@ uv venv --python 3.12 .venv
 python -m pip install -r requirements.txt
 ```
 
-## Ejecucion con webcam
+## Ejecutar con webcam
 
 ```powershell
 python main.py --source 0
 ```
 
-## Ejecucion con video
+## Ejecutar con video
 
 ```powershell
 python main.py --source .\video.mp4
 ```
 
-## Parametros utiles
+## Parámetros útiles
 
 - `--backend auto|openpose|mediapipe`
 - `--max-frames 300`
 - `--shoulder-threshold 0.16`
 - `--no-display`
 
-## Salida JSON
+## Formato de salida JSON
 
-Cada frame se guarda con este formato:
+Cada frame se guarda con una estructura como esta:
 
 ```json
 {
@@ -59,3 +77,15 @@ Cada frame se guarda con este formato:
   ]
 }
 ```
+
+## Nota sobre OpenPose
+
+Si tienes `pyopenpose` instalado, el módulo va a intentar usarlo cuando el backend esté en `auto` o en `openpose`.
+
+Si no lo tienes instalado, se usará `MediaPipe` automáticamente. Así puedes probar y validar el MVP sin tener que compilar OpenPose desde el principio.
+
+## Nota sobre multipersona
+
+Con `OpenPose`, el diseño ya está pensado para soportar varias personas de forma más eficiente.
+
+Con `MediaPipe Pose`, este MVP procesa una sola persona por frame. Eso alcanza para validar detección corporal, hombros, postura y movimiento de forma básica, pero no sería la mejor opción para un caso real con varias personas al mismo tiempo.
