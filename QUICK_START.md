@@ -1,6 +1,6 @@
-# 🚀 Quick Start - Body Detection OpenPose
+# 🚀 Quick Start - OpenPose
 
-Inicia el proyecto en **5 minutos** con dos terminales.
+Inicia OpenPose en **5 minutos** con dos terminales.
 
 ---
 
@@ -49,9 +49,9 @@ python tests/test_vision.py
 |-----------|-----------|
 | [README.md](README.md) | Visión general y arquitectura |
 | [STRUCTURE.md](STRUCTURE.md) | Estructura detallada del proyecto |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Cómo contribuir |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Detalles técnicos |
-| [INDEX.md](INDEX.md) | Índice de navegación |
+| [UI/README.md](UI/README.md) | Componentes de captura |
+| [src/README.md](src/README.md) | Componentes React comunes |
+| [body-cam/README.md](body-cam/README.md) | Backend de visión |
 
 ---
 
@@ -61,9 +61,156 @@ python tests/test_vision.py
 |----------|----------|
 | Cámara no funciona | Verificar permisos del navegador |
 | Permisos denegados | Settings → Privacy → Camera/Microphone |
-| Backend no responde | Verificar que Python está corriendo en Terminal 1 |
+| Backend no responde | Verificar que pytest está activado en Terminal 1 |
 | Videos no descargan | Verificar config de descarga del navegador |
 
 ---
 
-**¿Necesitas más ayuda?** Lee [README.md](README.md)
+**¿Necesitas más ayuda?** Lee [README.md](README.md) → [Solución de Problemas](#-solución-de-problemas)
+
+```powershell
+npm init -y
+npm install react react-dom
+npm install --save-dev typescript @types/react vite
+```
+
+### Si no existe venv en body-cam
+
+```powershell
+cd body-cam
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+---
+
+## 🎬 Flujo de Uso Típico
+
+```
+1. Abro http://localhost:5173
+   ↓
+2. Navego a /evaluation
+   ↓
+3. Veo cámara en vivo (EvaluationRoom)
+   ↓
+4. Presiono "Iniciar Grabación"
+   ↓
+5. Video se graba (MediaRecorder API)
+   ↓
+6. Presiono "Finalizar"
+   ↓
+7. Video descarga como: recording-{timestamp}.webm
+   ↓
+8. (Futuro) Video sube a backend → Análisis de postura
+```
+
+---
+
+## ⚡ Comandos Útiles
+
+### Frontend
+
+```powershell
+# Iniciar desarrollo
+npm run dev
+
+# Build para producción
+npm run build
+
+# Vista previa de build
+npm run preview
+
+# Tests (si existen)
+npm test
+```
+
+### Backend
+
+```powershell
+# Activar venv
+cd body-cam
+.\.venv\Scripts\Activate.ps1
+
+# Ejecutar con webcam
+python main.py --source 0
+
+# Tests
+python tests/test_vision.py
+
+# Usar video file en lugar de webcam
+python main.py --source "video.mp4"
+```
+
+---
+
+## 🐛 Solución Rápida de Problemas
+
+| Problema | Solución |
+|----------|----------|
+| "Cámara no encontrada" | Verifica permisos en Windows Settings → Privacy |
+| "Permisos denegados" | Abre localhost en navegador diferente |
+| "Python no reconocido" | Activa .venv: `.\body-cam\.venv\Scripts\Activate.ps1` |
+| "npm command not found" | Reinstala Node.js |
+| "Port 5173 already in use" | Cambia puerto: `npm run dev -- --port 5174` |
+
+---
+
+## 📊 Estado del Proyecto
+
+✅ **Completado:**
+- Componente EvaluationRoom (grabación)
+- Estilos CSS profesionales
+- Documentación completa
+- Estructura de 3 carpetas
+
+⏳ **Próximas Tareas:**
+- [ ] Crear App.tsx con React Router
+- [ ] Implementar API REST backend
+- [ ] Integración video → pose detection
+- [ ] Dashboard de métricas
+
+---
+
+## 💡 Tips
+
+**Tip 1:** Comienza por la documentación en [README.md](README.md)
+
+**Tip 2:** Revisa [STRUCTURE.md](STRUCTURE.md) para entender dónde está cada cosa
+
+**Tip 3:** Cada carpeta tiene su propio README.md con detalles específicos
+
+**Tip 4:** EvaluationRoom es un componente standalone → Úsalo en cualquier página
+
+**Tip 5:** Todos los estilos son personalizables en `UI/EvaluationRoom.css`
+
+---
+
+## 🎓 Escalabilidad
+
+Esta estructura está lista para:
+- ✅ Múltiples componentes de UI
+- ✅ Múltiples páginas React
+- ✅ Servicios backend adicionales
+- ✅ Tests unitarios
+- ✅ CI/CD pipeline
+
+---
+
+## 📞 Contacto / Preguntas
+
+Ver secciones específicas en:
+- `UI/README.md` - Preguntas sobre grabación/video
+- `src/README.md` - Preguntas sobre componentes
+- `body-cam/README.md` - Preguntas sobre pose detection
+
+---
+
+**¡Listo para empezar!** 🚀
+
+Próximo paso: Lee [README.md](README.md)
+
+---
+
+**Fecha:** April 13, 2026  
+**Versión:** 1.0.0
