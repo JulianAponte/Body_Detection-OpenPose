@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Button from './common/Button';
+import Button from '../src/components/common/Button.tsx';
 import './EvaluationRoom.css';
 
 type RecordingState = 'idle' | 'recording' | 'paused';
