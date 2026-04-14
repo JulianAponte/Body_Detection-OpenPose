@@ -16,14 +16,14 @@ OpenPose es una plataforma bidireccional que combina:
 │            OPENPOSE ARCHITECTURE                    │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
-│  ┌─────────────────────┐    ┌──────────────────┐   │
-│  │   FRONTEND          │◄──►│  BACKEND         │   │
-│  │  React + TypeScript │    │  Python + ML     │   │
-│  │                     │    │                  │   │
-│  │ • Grabación video   │    │ • Pose detection │   │
-│  │ • Stream en vivo    │    │ • Facial markers │   │
-│  │ • Interfaz UI       │    │ • JSON export    │   │
-│  └─────────────────────┘    └──────────────────┘   │
+│  ┌─────────────────────┐    ┌──────────────────┐    │
+│  │   FRONTEND          │◄──►│  BACKEND         │    │
+│  │  React + TypeScript │    │  Python + ML     │    │
+│  │                     │    │                  │    │
+│  │ • Grabación video   │    │ • Pose detection │    │
+│  │ • Stream en vivo    │    │ • Facial markers │    │
+│  │ • Interfaz UI       │    │ • JSON export    │    │
+│  └─────────────────────┘    └──────────────────┘    │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
