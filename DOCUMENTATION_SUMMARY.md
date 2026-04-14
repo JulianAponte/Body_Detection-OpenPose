@@ -16,6 +16,7 @@ He reorganizado y mejorado profesionalmente la documentación del proyecto OpenP
 - ✅ Convenciones de código
 - ✅ Roadmap del proyecto
 - ✅ Troubleshooting
+- ✅ Links a documentación adicional
 
 #### 2. **QUICK_START.md** (Inicio Rápido - Nuevo)
 - ✅ Pasos en 5 minutos
@@ -66,6 +67,15 @@ He reorganizado y mejorado profesionalmente la documentación del proyecto OpenP
 
 ## 📁 Documentación de Subcarpetas
 
+### **src/README.md** (Mejorado)
+- Componentes: EvaluationRoom, EvaluationPage, Button, Input
+- Características detalladas
+- Ciclo de vida
+- Componentes comunes
+- Páginas (Login, Evaluation)
+- Convenciones
+
+### **backend/README.md** (Mejorado)
 ### **UI/README.md** (Mejorado)
 - Componentes: EvaluationRoom, EvaluationPage
 - Características detalladas
@@ -154,6 +164,8 @@ OpenPose/
 │   ├── CONTRIBUTING.md        🤝 Cómo contribuir (NUEVO)
 │   └── ARCHITECTURE.md        🏗️ Detalles técnicos (NUEVO)
 │
+├── 📁 src/README.md           Documentación de componentes React
+├── 📁 backend/README.md       Documentación del backend
 ├── 📁 UI/README.md            Documentación de UI
 ├── 📁 src/README.md           Documentación de componentes React
 └── 📁 body-cam/README.md      Documentación del backend
@@ -170,6 +182,10 @@ OpenPose/
 
 ### 👨‍💻 **Para trabajar en frontend**
 1. src/README.md
+2. CONTRIBUTING.md
+
+### 🐍 **Para trabajar en backend**
+1. backend/README.md
 2. UI/README.md
 3. CONTRIBUTING.md
 

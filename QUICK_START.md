@@ -10,7 +10,7 @@ Inicia OpenPose en **5 minutos** con dos terminales.
 
 **Terminal 1: Backend (Python)**
 ```powershell
-cd body-cam
+cd backend
 .\.venv\Scripts\Activate.ps1
 python main.py --source 0
 ```
@@ -37,7 +37,7 @@ http://localhost:5173
 
 ### Prueba 2: Backend (Pose Detection)
 ```powershell
-cd body-cam
+cd backend
 python tests/test_vision.py
 ```
 
@@ -49,6 +49,8 @@ python tests/test_vision.py
 |-----------|-----------|
 | [README.md](README.md) | Visión general y arquitectura |
 | [STRUCTURE.md](STRUCTURE.md) | Estructura detallada del proyecto |
+| [src/README.md](src/README.md) | Componentes React comunes |
+| [backend/README.md](backend/README.md) | Backend de visión |
 | [UI/README.md](UI/README.md) | Componentes de captura |
 | [src/README.md](src/README.md) | Componentes React comunes |
 | [body-cam/README.md](body-cam/README.md) | Backend de visión |
@@ -74,6 +76,10 @@ npm install react react-dom
 npm install --save-dev typescript @types/react vite
 ```
 
+### Si no existe venv en backend
+
+```powershell
+cd backend
 ### Si no existe venv en body-cam
 
 ```powershell
@@ -129,6 +135,7 @@ npm test
 
 ```powershell
 # Activar venv
+cd backend
 cd body-cam
 .\.venv\Scripts\Activate.ps1
 
@@ -150,6 +157,7 @@ python main.py --source "video.mp4"
 |----------|----------|
 | "Cámara no encontrada" | Verifica permisos en Windows Settings → Privacy |
 | "Permisos denegados" | Abre localhost en navegador diferente |
+| "Python no reconocido" | Activa .venv: `.\ backend\.venv\Scripts\Activate.ps1` |
 | "Python no reconocido" | Activa .venv: `.\body-cam\.venv\Scripts\Activate.ps1` |
 | "npm command not found" | Reinstala Node.js |
 | "Port 5173 already in use" | Cambia puerto: `npm run dev -- --port 5174` |
@@ -182,6 +190,7 @@ python main.py --source "video.mp4"
 
 **Tip 4:** EvaluationRoom es un componente standalone → Úsalo en cualquier página
 
+**Tip 5:** Todos los estilos son personalizables en `src/components/EvaluationRoom.css`
 **Tip 5:** Todos los estilos son personalizables en `UI/EvaluationRoom.css`
 
 ---
@@ -200,6 +209,9 @@ Esta estructura está lista para:
 ## 📞 Contacto / Preguntas
 
 Ver secciones específicas en:
+- `src/README.md` - Preguntas sobre componentes React
+- `src/README.md` - Preguntas sobre componentes
+- `backend/README.md` - Preguntas sobre pose detection
 - `UI/README.md` - Preguntas sobre grabación/video
 - `src/README.md` - Preguntas sobre componentes
 - `body-cam/README.md` - Preguntas sobre pose detection

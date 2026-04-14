@@ -28,6 +28,7 @@ OpenPose es una plataforma bidireccional que combina:
 └─────────────────────────────────────────────────────┘
 ```
 
+##  Tabla de Contenidos
 ## � Tabla de Contenidos
 
 - [🚀 Inicio Rápido](#-inicio-rápido)
@@ -46,6 +47,7 @@ OpenPose es una plataforma bidireccional que combina:
 
 ```powershell
 # Terminal 1: Backend
+cd backend && .\.venv\Scripts\Activate.ps1 && python main.py --source 0
 cd body-cam && .\.venv\Scripts\Activate.ps1 && python main.py --source 0
 
 # Terminal 2: Frontend
@@ -59,6 +61,11 @@ npm run dev
 ```
 OpenPose/
 │
+├── 📂 src/                   ⭐ FRONTEND - Componentes React
+│   ├── components/
+│   │   ├── EvaluationRoom.tsx
+│   │   ├── common/
+│   │   └── ...
 ├── 📂 UI/                    ⭐ FRONTEND - UI de captura
 │   ├── EvaluationRoom.tsx
 │   ├── EvaluationPage.tsx
@@ -71,6 +78,7 @@ OpenPose/
 │   ├── README.md
 │   └── ...
 │
+├── 📂 backend/              ⭐ BACKEND - Visión por computadora
 ├── 📂 body-cam/              ⭐ BACKEND - Visión por computadora
 │   ├── main.py
 │   ├── pose_detector.py
@@ -92,6 +100,9 @@ El proyecto está dividido en dos módulos independientes:
 
 | Componente | Tecnología | Propósito |
 |-----------|-----------|-----------|
+| **UI/** | React + TypeScript | Componentes e interfaz de captura |
+| **src/** | React + TypeScript | Componentes reutilizables (Button, Input, etc.) |
+| **backend/** | Python 3.12 + MediaPipe | Detección de postura y landmarks faciales |
 | **UI/** | React + TypeScript + Tailwind | Captura de video y streaming en tiempo real |
 | **src/** | React + TypeScript | Componentes reutilizables (Button, Input, etc.) |
 | **body-cam/** | Python 3.12 + MediaPipe | Detección de postura y landmarks faciales |
@@ -136,6 +147,7 @@ cd OpenPose
 ### 2. Configurar Backend (Python)
 
 ```powershell
+cd backend
 cd body-cam
 
 # Crear virtual environment con UV (recomendado)
@@ -191,6 +203,7 @@ yarn install
 
 **Terminal 1 - Backend:**
 ```powershell
+cd backend
 cd body-cam
 .\.venv\Scripts\Activate.ps1
 python main.py --source 0
@@ -220,6 +233,8 @@ Accede a `http://localhost:5173` (Vite) o `http://localhost:3000` (Create React 
 
 - **Componentes reutilizables**: `src/components/common/`
 - **Páginas completas**: `src/pages/`
+- **UI features**: `src/components/` y `src/pages/` (nuevos componentes principales)
+- **Backend logic**: `backend/` (Python)
 - **UI features aisladas**: `UI/` (nuevos componentes principales)
 - **Backend logic**: `body-cam/` (Python)
 
@@ -274,7 +289,11 @@ Video + Pose + Face + Audio → Metrics dashboard → Reporte final
 
 ### Backend (Python)
 
+<<<<<<< feature/add-documentation
+**Variables de Backend en `backend/config.py`:****
+=======
 **Variables de Backend en `body-cam/config.py`:**
+>>>>>>> main
 ```python
 POSE_BACKEND = 'openpose'  # o 'mediapipe'
 OUTPUT_WIDTH = 1280
@@ -313,7 +332,11 @@ Frontend (React)
 Backend (FastAPI/Flask)
     ↓ Process video
     ↓ Detect pose + face
+<<<<<<< feature/add-documentation
+Backend (backend)
+=======
 Backend (body-cam)
+>>>>>>> main
     ↓ Return JSON
 Frontend (React)
     ↓ Display metrics
@@ -370,6 +393,7 @@ npm run test:coverage
 
 ### Backend
 ```bash
+cd backend
 cd body-cam
 python -m pytest tests/ -v
 python tests/test_vision.py
@@ -377,6 +401,9 @@ python tests/test_vision.py
 
 ## 📚 Documentación Detallada
 
+- **UI Components**: Ver [src/README.md](src/README.md)
+- **React Components**: Ver [src/README.md](src/README.md)
+- **Backend & Vision**: Ver [backend/README.md](backend/README.md)
 - **UI Components**: Ver [UI/README.md](UI/README.md)
 - **React Components**: Ver [src/README.md](src/README.md)
 - **Backend & Vision**: Ver [body-cam/README.md](body-cam/README.md)
@@ -393,6 +420,7 @@ python tests/test_vision.py
 
 ### "Backend no responde"
 → Verificar que Python está corriendo en Terminal 1
+→ Check `backend/` está activado `.venv`
 → Check `body-cam/` está activado `.venv`
 
 ### "Videos no descargan"

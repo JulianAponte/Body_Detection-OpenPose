@@ -228,6 +228,7 @@ body-cam/
 
 **Para correr tests:**
 ```bash
+cd backend
 cd body-cam
 pytest tests/ -v
 ```
@@ -241,6 +242,8 @@ pytest tests/ -v
 | `package.json` | Node.js dependencies y npm scripts |
 | `tsconfig.json` | TypeScript compiler options |
 | `vite.config.ts` | Vite build configuration |
+| `backend/config.py` | Backend constants y configuration |
+| `backend/requirements.txt` | Python dependencies |
 | `body-cam/config.py` | Backend constants y configuration |
 | `body-cam/requirements.txt` | Python dependencies |
 
@@ -277,9 +280,9 @@ npm run lint         # Run linter
 ## 📚 Referencias Cruzadas
 
 - Para inicio rápido → [QUICK_START.md](QUICK_START.md)
-- Para documentación UI → [UI/README.md](UI/README.md)
+- Para documentación componentes UI → [src/README.md](src/README.md)
 - Para documentación src → [src/README.md](src/README.md)
-- Para documentación backend → [body-cam/README.md](body-cam/README.md)
+- Para documentación backend → [backend/README.md](backend/README.md)
 - Para contribuir → [CONTRIBUTING.md](CONTRIBUTING.md)
 - Para arquitectura → [ARCHITECTURE.md](ARCHITECTURE.md)
 
@@ -304,6 +307,7 @@ Usuario presiona "Iniciar" → Estado: Grabando (REC indicator)
 ```
 Video Upload
     ↓
+backend/main.py
 body-cam/main.py
     ↓ (frame extraction)
 pose_detector.py ←→ MediaPipe/OpenPose models
@@ -353,12 +357,14 @@ Error Red:        #ff4343
       ├─ Stack tecnológico
       └─ Roadmap
 
+   ├─ src/README.md
    ├─ UI/README.md
    │  └─ Componente EvaluationRoom
    │     ├─ Props y estados
    │     ├─ Configuración MediaRecorder
    │     ├─ Integración backend
    │     └─ Ejemplos de uso
+
    │
    ├─ src/README.md
    │  └─ Componentes React comunes
@@ -366,6 +372,8 @@ Error Red:        #ff4343
    │     ├─ Input.tsx
    │     ├─ Estructura de páginas
    │     └─ Convenciones de código
+
+   └─ backend/README.md
    │
    └─ body-cam/README.md
       └─ Backend Python
@@ -383,6 +391,7 @@ Error Red:        #ff4343
 
 **Terminal 1: Backend Python**
 ```powershell
+cd backend
 cd body-cam
 .\.venv\Scripts\Activate.ps1
 python main.py --source 0
@@ -405,6 +414,9 @@ EvaluationPage (UI/EvaluationPage.tsx)
     ↓ (proporciona video)
 EvaluationRoom (UI/EvaluationRoom.tsx)
     ├─ Captura → recording.webm
+    ├─ POST /api/upload/video → backend API
+    │
+    └─ backend/main.py
     ├─ POST /api/upload/video → body-cam backend
     │
     └─ body-cam/main.py
@@ -451,6 +463,7 @@ numpy==1.x.x                # Operaciones numéricas
 - [x] EvaluationPage.tsx creado en /UI/
 - [x] README.md creado en /UI/
 - [x] README.md creado en /src/
+- [x] README.md actualizado en /backend/
 - [x] README.md actualizado en /body-cam/
 - [x] README.md creado en raíz
 - [x] STRUCTURE.md creado (este archivo)
@@ -484,6 +497,7 @@ numpy==1.x.x                # Operaciones numéricas
 OpenPose/
 ├── UI/                 # Componentes de propósito único
 ├── src/                # Frontend React centralizado
+├── backend/           # Backend modular
 ├── body-cam/           # Backend modular
 └── services/ (Future)  # Microservicios adicionales
     ├── auth-service/   # Autenticación
@@ -493,6 +507,7 @@ OpenPose/
 
 ### Por Qué Esta Estructura
 
+✅ **Separación clara**: UI → src → backend  
 ✅ **Separación clara**: UI → src → body-cam  
 ✅ **Fácil de escalar**: Agregar más servicios sin tocar existentes  
 ✅ **Reutilizable**: Componentes en src/common/ para futuras features  

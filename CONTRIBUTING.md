@@ -57,7 +57,7 @@ npm run dev
 npm test
 
 # Si es backend
-cd body-cam
+cd backend
 pytest tests/
 ```
 
@@ -191,6 +191,7 @@ npm run test:watch
 ### Backend
 
 ```bash
+cd backend
 cd body-cam
 
 # Ejecutar todos los tests

@@ -13,6 +13,12 @@ Guía de navegación rápida por la documentación del proyecto.
 
 ### 👨‍💻 Voy a trabajar en Frontend (React)
 1. Lee [src/README.md](src/README.md)
+2. Lee [src/README.md](src/README.md)
+3. Explora `src/components/` y `src/pages/`
+
+### 🐍 Voy a trabajar en Backend (Python)
+1. Lee [backend/README.md](backend/README.md)
+2. Explora `backend/pose_detector.py` y `config.py`
 2. Lee [UI/README.md](UI/README.md)
 3. Explora `src/components/` y `UI/`
 
@@ -32,6 +38,9 @@ Guía de navegación rápida por la documentación del proyecto.
 
 | Carpeta | Propósito | Tech | README |
 |---------|-----------|------|--------|
+| **src/components/** | Componentes React | React + TypeScript | [src/README.md](src/README.md) |
+| **src/** | Componentes comunes | React + TypeScript | [src/README.md](src/README.md) |
+| **backend/** | Visión por computadora | Python + MediaPipe | [backend/README.md](backend/README.md) |
 | **UI/** | Interfaz de captura | React + TypeScript | [UI/README.md](UI/README.md) |
 | **src/** | Componentes comunes | React + TypeScript | [src/README.md](src/README.md) |
 | **body-cam/** | Visión por computadora | Python + MediaPipe | [body-cam/README.md](body-cam/README.md) |
@@ -53,12 +62,14 @@ Guía de navegación rápida por la documentación del proyecto.
 ## 🗺️ Por Tarea
 
 ### "Quiero capturar video"
+→ [src/components/EvaluationRoom.tsx](src/components/EvaluationRoom.tsx) + [src/README.md](src/README.md)
 → [UI/EvaluationRoom.tsx](UI/EvaluationRoom.tsx) + [UI/README.md](UI/README.md)
 
 ### "Quiero crear un botón"
 → [src/components/common/Button.tsx](src/components/common/Button.tsx) + [src/README.md](src/README.md)
 
 ### "Quiero detectar postura"
+→ [backend/pose_detector.py](backend/pose_detector.py) + [backend/README.md](backend/README.md)
 → [body-cam/pose_detector.py](body-cam/pose_detector.py) + [body-cam/README.md](body-cam/README.md)
 
 ### "Necesito entender la integración"
@@ -86,6 +97,9 @@ Guía de navegación rápida por la documentación del proyecto.
 | ⚡ [QUICK_START.md](QUICK_START.md) | Guía de 5 minutos | 5 min |
 | 🗺️ [STRUCTURE.md](STRUCTURE.md) | Mapa completo de archivos | 15 min |
 | 📍 INDEX.md | Este archivo (navegación) | 5 min |
+| 🎨 [src/README.md](src/README.md) | Documentación EvaluationRoom | 10 min |
+| ⚛️ [src/README.md](src/README.md) | Documentación componentes React | 10 min |
+| 🐍 [backend/README.md](backend/README.md) | Documentación backend Python | 15 min |
 | 🎨 [UI/README.md](UI/README.md) | Documentación EvaluationRoom | 10 min |
 | ⚛️ [src/README.md](src/README.md) | Documentación componentes React | 10 min |
 | 🐍 [body-cam/README.md](body-cam/README.md) | Documentación backend Python | 15 min |
@@ -103,6 +117,7 @@ http://localhost:5173/evaluation
   ↓
 EvaluationPage (src/pages/Evaluation/)
   ↓
+EvaluationRoom (src/components/EvaluationRoom.tsx)
 EvaluationRoom (UI/EvaluationRoom.tsx)
   ├─ Video stream (getUserMedia) ←→ Cámara
   ├─ Grabación (MediaRecorder) ← Control buttons
@@ -112,6 +127,7 @@ EvaluationRoom (UI/EvaluationRoom.tsx)
   
 http://localhost:5000/api/upload
   ↓
+backend/main.py
 body-cam/main.py
   ├─ pose_detector.py (OpenPose/MediaPipe)
   ├─ vision_service.py (Face landmarks)
@@ -131,6 +147,7 @@ Mostrar métricas
 
 ### Workflow 1: Desarrollo de UI
 ```
+1. Abre src/components/EvaluationRoom.tsx
 1. Abre UI/EvaluationRoom.tsx
 2. Modifica componente/estilos
 3. npm run dev verá cambios en vivo
@@ -147,6 +164,7 @@ Mostrar métricas
 
 ### Workflow 3: Desarrollo Backend
 ```
+1. Abre backend/pose_detector.py
 1. Abre body-cam/pose_detector.py
 2. Modifica lógica de pose detection
 3. python main.py --source 0 para testing
@@ -155,6 +173,7 @@ Mostrar métricas
 
 ### Workflow 4: Integración Completa
 ```
+1. Frontend carga src/components/EvaluationRoom
 1. Frontend carga UI/EvaluationRoom
 2. Usuario graba video
 3. Video sube a backend (futuro: API)
@@ -175,6 +194,7 @@ npm test             # Ejecutar tests
 
 ### Backend
 ```bash
+cd backend
 cd body-cam
 .\.venv\Scripts\Activate.ps1  # Activar virtual env
 python main.py --source 0      # Ejecutar con webcam
@@ -204,6 +224,9 @@ Los siguientes archivos están **DEPRECATED** y no deberían usarse:
 - ❌ `src/pages/Evaluation/EvaluationPage.tsx`
 
 **Usar en su lugar:**
+- ✅ `src/components/EvaluationRoom.tsx`
+- ✅ `src/components/EvaluationRoom.css`
+- ✅ `src/pages/Evaluation/EvaluationPage.tsx`
 - ✅ `UI/EvaluationRoom.tsx`
 - ✅ `UI/EvaluationRoom.css`
 - ✅ `UI/EvaluationPage.tsx`
@@ -214,6 +237,9 @@ Los siguientes archivos están **DEPRECATED** y no deberían usarse:
 
 | Pregunta | Dónde buscar |  |
 |----------|---|--|
+| "¿Cómo uso EvaluationRoom?" | [src/README.md](src/README.md) | 👉 |
+| "¿Cómo creo un componente React?" | [src/README.md](src/README.md) | 👉 |
+| "¿Cómo funciona pose detection?" | [backend/README.md](backend/README.md) | 👉 |
 | "¿Cómo uso EvaluationRoom?" | [UI/README.md](UI/README.md) | 👉 |
 | "¿Cómo creo un componente React?" | [src/README.md](src/README.md) | 👉 |
 | "¿Cómo funciona pose detection?" | [body-cam/README.md](body-cam/README.md) | 👉 |
