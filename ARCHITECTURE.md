@@ -15,29 +15,29 @@ Documento técnico detallado sobre la arquitectura del proyecto.
 │  │   CLIENT LAYER           │    │   SERVER LAYER           │  │
 │  │  (React + TypeScript)    │    │  (Python + MediaPipe)    │  │
 │  │                          │    │                          │  │
-│  │  ┌────────────────────┐  │    │  ┌──────────────────────┐  │
-│  │  │ EvaluationRoom    │  │    │  │ Vision Service       │  │
-│  │  │ - Capture         │  │    │  │ - Pose Detection     │  │
-│  │  │ - Stream          │  │    │  │ - Face Detection     │  │
-│  │  │ - Download        │  │    │  │ - Process JSON       │  │
-│  │  └────────────────────┘  │    │  └──────────────────────┘  │
-│  │                          │    │         │                  │
-│  │  ┌────────────────────┐  │    │  ┌──────▼──────────────┐  │
-│  │  │ UI Components     │  │    │  │ MediaPipe Models   │  │
-│  │  │ - Button          │  │    │  │ - face_landmarker  │  │
-│  │  │ - Input           │  │    │  │ - pose_landmarker  │  │
-│  │  │ - Pages           │  │    │  └────────────────────┘  │
-│  │  └────────────────────┘  │    │                          │
+│  │  ┌────────────────────┐  │    │  ┌──────────────────────┐   │
+│  │  │ EvaluationRoom    │  │    │  │ Vision Service        │   │
+│  │  │ - Capture         │  │    │  │ - Pose Detection      │   │
+│  │  │ - Stream          │  │    │  │ - Face Detection      │   │
+│  │  │ - Download        │  │    │  │ - Process JSON        │   │
+│  │  └────────────────────┘  │    │  └──────────────────────┘   │
+│  │                          │    │         │                   │
+│  │  ┌────────────────────┐  │    │  ┌──────▼──────────────┐    │
+│  │  │ UI Components     │  │    │  │ MediaPipe Models     │    │
+│  │  │ - Button          │  │    │  │ - face_landmarker    │    │
+│  │  │ - Input           │  │    │  │ - pose_landmarker    │    │
+│  │  │ - Pages           │  │    │  └────────────────────┘      │
+│  │  └────────────────────┘  │    │                             │
 │  └──────────────────────────┘    └──────────────────────────┘
 │         │                                    │                 │
 │         │      WebRTC/HTTP                   │                 │
 │         └────────────────────────────────────┘                 │
 │                                                                │
-│  ┌────────────────────────────────────────────────────────┐   │
-│  │  STORAGE LAYER                                        │   │
-│  │  - Local Downloads (WebM)                             │   │
-│  │  - JSON Output Files                                  │   │
-│  └────────────────────────────────────────────────────────┘   │
+│  ┌────────────────────────────────────────────────────────┐    │
+│  │  STORAGE LAYER                                         │    │
+│  │  - Local Downloads (WebM)                              │    │
+│  │  - JSON Output Files                                   │    │
+│  └────────────────────────────────────────────────────────┘    │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
 ```
