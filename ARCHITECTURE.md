@@ -71,6 +71,7 @@ src/
 │   │   ├── Login.css               # Styles
 │   │   └── ...
 │   └── Evaluation/                 # Página de evaluación
+│   └── Evaluation/                 # [DEPRECATED - use UI/]
 │
 └── README.md
 ```
@@ -118,6 +119,7 @@ Interface EvaluationRoomState:
 
 ```
 backend/
+body-cam/
 ├── main.py                          # Entry point
 ├── pose_detector.py                 # Pose detector class
 ├── config.py                        # Configuration constants

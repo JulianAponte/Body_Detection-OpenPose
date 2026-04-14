@@ -192,6 +192,7 @@ npm run test:watch
 
 ```bash
 cd backend
+cd body-cam
 
 # Ejecutar todos los tests
 python -m pytest tests/ -v
@@ -225,7 +226,7 @@ src/
     └── YourPage/
 
 # Backend
-backend/
+body-cam/
 ├── app/
 │   └── services/
 │       └── your_service.py

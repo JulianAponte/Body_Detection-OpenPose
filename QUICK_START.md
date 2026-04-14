@@ -51,6 +51,9 @@ python tests/test_vision.py
 | [STRUCTURE.md](STRUCTURE.md) | Estructura detallada del proyecto |
 | [src/README.md](src/README.md) | Componentes React comunes |
 | [backend/README.md](backend/README.md) | Backend de visión |
+| [UI/README.md](UI/README.md) | Componentes de captura |
+| [src/README.md](src/README.md) | Componentes React comunes |
+| [body-cam/README.md](body-cam/README.md) | Backend de visión |
 
 ---
 
@@ -77,6 +80,10 @@ npm install --save-dev typescript @types/react vite
 
 ```powershell
 cd backend
+### Si no existe venv en body-cam
+
+```powershell
+cd body-cam
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -129,6 +136,7 @@ npm test
 ```powershell
 # Activar venv
 cd backend
+cd body-cam
 .\.venv\Scripts\Activate.ps1
 
 # Ejecutar con webcam
@@ -150,6 +158,7 @@ python main.py --source "video.mp4"
 | "Cámara no encontrada" | Verifica permisos en Windows Settings → Privacy |
 | "Permisos denegados" | Abre localhost en navegador diferente |
 | "Python no reconocido" | Activa .venv: `.\ backend\.venv\Scripts\Activate.ps1` |
+| "Python no reconocido" | Activa .venv: `.\body-cam\.venv\Scripts\Activate.ps1` |
 | "npm command not found" | Reinstala Node.js |
 | "Port 5173 already in use" | Cambia puerto: `npm run dev -- --port 5174` |
 
@@ -182,6 +191,7 @@ python main.py --source "video.mp4"
 **Tip 4:** EvaluationRoom es un componente standalone → Úsalo en cualquier página
 
 **Tip 5:** Todos los estilos son personalizables en `src/components/EvaluationRoom.css`
+**Tip 5:** Todos los estilos son personalizables en `UI/EvaluationRoom.css`
 
 ---
 
@@ -202,6 +212,9 @@ Ver secciones específicas en:
 - `src/README.md` - Preguntas sobre componentes React
 - `src/README.md` - Preguntas sobre componentes
 - `backend/README.md` - Preguntas sobre pose detection
+- `UI/README.md` - Preguntas sobre grabación/video
+- `src/README.md` - Preguntas sobre componentes
+- `body-cam/README.md` - Preguntas sobre pose detection
 
 ---
 

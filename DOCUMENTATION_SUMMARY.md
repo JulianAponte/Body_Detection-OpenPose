@@ -76,6 +76,22 @@ He reorganizado y mejorado profesionalmente la documentación del proyecto OpenP
 - Convenciones
 
 ### **backend/README.md** (Mejorado)
+### **UI/README.md** (Mejorado)
+- Componentes: EvaluationRoom, EvaluationPage
+- Características detalladas
+- Ciclo de vida
+- Paleta de colores
+- Navegadores soportados
+- Troubleshooting
+- Performance
+
+### **src/README.md** (Mejorado)
+- Componentes comunes (Button, Input)
+- Páginas (Login, Evaluation)
+- Estructura clara
+- Convenciones
+
+### **body-cam/README.md** (Mejorado)
 - Estructura del backend
 - Funcionalidades principales
 - Instalación paso a paso
@@ -150,6 +166,9 @@ OpenPose/
 │
 ├── 📁 src/README.md           Documentación de componentes React
 ├── 📁 backend/README.md       Documentación del backend
+├── 📁 UI/README.md            Documentación de UI
+├── 📁 src/README.md           Documentación de componentes React
+└── 📁 body-cam/README.md      Documentación del backend
 ```
 
 ---
@@ -167,6 +186,11 @@ OpenPose/
 
 ### 🐍 **Para trabajar en backend**
 1. backend/README.md
+2. UI/README.md
+3. CONTRIBUTING.md
+
+### 🐍 **Para trabajar en backend**
+1. body-cam/README.md
 2. ARCHITECTURE.md (backend section)
 3. CONTRIBUTING.md
 

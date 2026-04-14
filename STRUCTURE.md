@@ -26,6 +26,12 @@ OpenPose/
 │   ├── ARCHITECTURE.md                 🏗️ Detalles técnicos
 │   └── LICENSE                         📄 MIT License (futuro)
 │
+├── 📁 UI/ (⭐ INTERFAZ DE USUARIO)
+│   ├── EvaluationRoom.tsx              # Componente de grabación
+│   ├── EvaluationRoom.css              # Estilos de grabación
+│   ├── EvaluationPage.tsx              # Página wrapper
+│   └── README.md                       # Documentación UI
+│
 ├── 📁 src/ (⭐ FRONTEND REACT)
 │   ├── App.tsx                         # Root app component
 │   ├── index.css                       # Global styles
@@ -39,8 +45,8 @@ OpenPose/
 │   │   │   └── Input.tsx               # Input reutilizable
 │   │   │       └── Props: label, error, icon, className
 │   │   │
-│   │   ├── EvaluationRoom.tsx          # ⭐ Componente principal de grabación
-│   │   └── EvaluationRoom.css          # ⭐ Estilos de grabación
+│   │   ├── EvaluationRoom.tsx          # ⚠️ DEPRECATED → usar UI/
+│   │   └── EvaluationRoom.css          # ⚠️ DEPRECATED → usar UI/
 │   │
 │   └── pages/
 │       ├── Login/
@@ -52,18 +58,38 @@ OpenPose/
 │       │   └── logic.js                # v2 Logic
 │       │
 │       └── Evaluation/
-│           └── EvaluationPage.tsx      # ⭐ Página principal de evaluación
+│           └── EvaluationPage.tsx      # ⚠️ DEPRECATED → usar UI/
 │
-├── 📁 backend/ (⭐ BACKEND PYTHON)
+├── 📁 body-cam/ (⭐ BACKEND PYTHON)
 │   ├── main.py                         # Script principal
 │   ├── pose_detector.py                # Clase PoseDetector
 │   ├── config.py                       # Constantes globales
 │   ├── utils.py                        # Helper functions
-126:   ├─ pose_detector.py          [Pose detection]
-127:   ├─ config.py                 [Configuration]
-128:   ├─ utils.py                  [Utils]
-129:   └─ app/services/
-130:      └─ vision_service.py      [Vision service]
+│   ├── output.json                     # Salida de ejemplo
+│   ├── requirements.txt                # pip dependencies
+│   ├── README.md                       # Documentación backend
+│   │
+│   ├── app/
+│   │   └── services/
+│   │       └── vision_service.py       # VisionService class
+│   │
+│   ├── models/
+│   │   ├── face_landmarker.task        # Modelo MediaPipe facial
+│   │   └── pose_landmarker_full.task   # Modelo MediaPipe pose
+│   │
+│   ├── tests/
+│   │   └── test_vision.py              # Unit tests
+│   │
+│   ├── .venv/                          # Virtual environment
+│   ├── .git/                           # Git repository
+│   ├── .gitignore                      # Git ignore
+│   └── __pycache__/                    # Python cache
+│
+└── 📁 UI/ (Duplicado temporalmente - Ver UI carpeta arriba)
+    ├── EvaluationPage.tsx
+    ├── EvaluationRoom.tsx
+    ├── EvaluationRoom.css
+    └── README.md
 ```
 
 ---
@@ -82,10 +108,10 @@ OpenPose/
 | ✅ Botón reutilizable | src | components/common/Button.tsx | Frontend |
 | ✅ Input reutilizable | src | components/common/Input.tsx | Frontend |
 | ✅ Sistema de login | src | pages/Login/ | Frontend |
-| 🔍 Detección de postura | backend | pose_detector.py | Backend |
-| 🔍 Detección facial | backend | app/services/vision_service.py | Backend |
-| ⚙️ Configuración global | backend | config.py | Backend |
-| 🎨 Utilidades visuales | backend | utils.py | Backend |
+| 🔍 Detección de postura | body-cam | pose_detector.py | Backend |
+| 🔍 Detección facial | body-cam | app/services/vision_service.py | Backend |
+| ⚙️ Configuración global | body-cam | config.py | Backend |
+| 🎨 Utilidades visuales | body-cam | utils.py | Backend |
 
 ---
 
@@ -107,7 +133,7 @@ OpenPose/
   │  ├─ Login.tsx              [Login page]
   │  └─ LoginForm.tsx          [Login form]
 
-🐍 BACKEND (Backend ML)
+🐍 BODY-CAM (Backend ML)
   ├─ main.py                   [Entry point]
   ├─ pose_detector.py          [Pose detection]
   ├─ config.py                 [Configuration]
@@ -158,7 +184,7 @@ JSON output
 
 ### Carpetas
 
-- **Minúsculas**: `backend`, `src`, `ui` (estándar)
+- **Minúsculas**: `body-cam`, `src`, `ui` (estándar)
 - **PascalCase**: No usar para carpetas
 
 ### Archivos Componentes React
@@ -175,10 +201,25 @@ JSON output
 
 ---
 
+## ⚠️ Archivos Deprecados
+
+Los siguientes archivos serán removidos en futuras versiones:
+
+```
+src/components/EvaluationRoom.tsx     → Reemplazado por UI/EvaluationRoom.tsx
+src/components/EvaluationRoom.css     → Reemplazado por UI/EvaluationRoom.css
+src/pages/Evaluation/                 → Reemplazado por UI/
+```
+
+**Acción requerida:**
+- Importar desde `UI/` en lugar de `src/components/`
+
+---
+
 ## 🧪 Estructura de Tests
 
 ```
-backend/
+body-cam/
 └── tests/
     ├── test_vision.py              # Tests para VisionService
     ├── test_pose_detector.py       # (Futuro) Tests para PoseDetector
@@ -188,6 +229,7 @@ backend/
 **Para correr tests:**
 ```bash
 cd backend
+cd body-cam
 pytest tests/ -v
 ```
 
@@ -202,6 +244,8 @@ pytest tests/ -v
 | `vite.config.ts` | Vite build configuration |
 | `backend/config.py` | Backend constants y configuration |
 | `backend/requirements.txt` | Python dependencies |
+| `body-cam/config.py` | Backend constants y configuration |
+| `body-cam/requirements.txt` | Python dependencies |
 
 ---
 
@@ -264,6 +308,7 @@ Usuario presiona "Iniciar" → Estado: Grabando (REC indicator)
 Video Upload
     ↓
 backend/main.py
+body-cam/main.py
     ↓ (frame extraction)
 pose_detector.py ←→ MediaPipe/OpenPose models
     ↓ (pose keypoints)
@@ -313,12 +358,14 @@ Error Red:        #ff4343
       └─ Roadmap
 
    ├─ src/README.md
+   ├─ UI/README.md
    │  └─ Componente EvaluationRoom
    │     ├─ Props y estados
    │     ├─ Configuración MediaRecorder
    │     ├─ Integración backend
    │     └─ Ejemplos de uso
 
+   │
    ├─ src/README.md
    │  └─ Componentes React comunes
    │     ├─ Button.tsx
@@ -327,6 +374,8 @@ Error Red:        #ff4343
    │     └─ Convenciones de código
 
    └─ backend/README.md
+   │
+   └─ body-cam/README.md
       └─ Backend Python
          ├─ Instalación
          ├─ Configuración (config.py)
@@ -343,6 +392,7 @@ Error Red:        #ff4343
 **Terminal 1: Backend Python**
 ```powershell
 cd backend
+cd body-cam
 .\.venv\Scripts\Activate.ps1
 python main.py --source 0
 ```
@@ -367,6 +417,9 @@ EvaluationRoom (UI/EvaluationRoom.tsx)
     ├─ POST /api/upload/video → backend API
     │
     └─ backend/main.py
+    ├─ POST /api/upload/video → body-cam backend
+    │
+    └─ body-cam/main.py
         ├─ Extract frames
         ├─ pose_detector.py → OpenPose/MediaPipe
         ├─ vision_service.py → Face landmarks
@@ -411,6 +464,7 @@ numpy==1.x.x                # Operaciones numéricas
 - [x] README.md creado en /UI/
 - [x] README.md creado en /src/
 - [x] README.md actualizado en /backend/
+- [x] README.md actualizado en /body-cam/
 - [x] README.md creado en raíz
 - [x] STRUCTURE.md creado (este archivo)
 - [x] Archivos deprecated marcados en src/
@@ -444,6 +498,7 @@ OpenPose/
 ├── UI/                 # Componentes de propósito único
 ├── src/                # Frontend React centralizado
 ├── backend/           # Backend modular
+├── body-cam/           # Backend modular
 └── services/ (Future)  # Microservicios adicionales
     ├── auth-service/   # Autenticación
     ├── api-gateway/    # API REST
@@ -453,6 +508,7 @@ OpenPose/
 ### Por Qué Esta Estructura
 
 ✅ **Separación clara**: UI → src → backend  
+✅ **Separación clara**: UI → src → body-cam  
 ✅ **Fácil de escalar**: Agregar más servicios sin tocar existentes  
 ✅ **Reutilizable**: Componentes en src/common/ para futuras features  
 ✅ **Mantenible**: README en cada carpeta documenta su propósito  
