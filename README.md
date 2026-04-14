@@ -16,14 +16,14 @@ OpenPose es una plataforma bidireccional que combina:
 │            OPENPOSE ARCHITECTURE                    │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
-│  ┌─────────────────────┐    ┌──────────────────┐   │
-│  │   FRONTEND          │◄──►│  BACKEND         │   │
-│  │  React + TypeScript │    │  Python + ML     │   │
-│  │                     │    │                  │   │
-│  │ • Grabación video   │    │ • Pose detection │   │
-│  │ • Stream en vivo    │    │ • Facial markers │   │
-│  │ • Interfaz UI       │    │ • JSON export    │   │
-│  └─────────────────────┘    └──────────────────┘   │
+│  ┌─────────────────────┐    ┌──────────────────┐    │
+│  │   FRONTEND          │◄──►│  BACKEND         │    │
+│  │  React + TypeScript │    │  Python + ML     │    │
+│  │                     │    │                  │    │
+│  │ • Grabación video   │    │ • Pose detection │    │
+│  │ • Stream en vivo    │    │ • Facial markers │    │
+│  │ • Interfaz UI       │    │ • JSON export    │    │
+│  └─────────────────────┘    └──────────────────┘    │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
@@ -440,7 +440,7 @@ python tests/test_vision.py
 
 - **Issues**: GitHub Issues
 - **Docs**: `/README.md` en cada carpeta
-- **Email**: (a definir)
+- **Email**: aponteapps@gmail.com
 
 ## 📄 Licencia
 
@@ -460,15 +460,5 @@ MIT License - Ver LICENSE file
 
 ---
 
-**versión:** 1.0.0 MVP  
+**versión:** 1.0.2 MVP  
 **Última actualización:** April 13, 2026  
-**Mantenedores:** Development Team
-
----
-
-## 🎓 Aprende Más
-
-- [MediaPipe Documentation](https://google.github.io/mediapipe/)
-- [OpenPose Paper](https://arxiv.org/abs/1611.08408)
-- [React Docs](https://react.dev)
-- [Web APIs - getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
